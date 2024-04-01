@@ -10,3 +10,13 @@ One Drive Link to Data: https://minersutep-my.sharepoint.com/:f:/g/personal/aave
 Doi: https://doi.org/10.48550/arXiv.1811.02695
 Github: https://github.com/AI4EPS/DeepDenoiser
 Seisbench Github: https://github.com/seisbench/seisbench
+
+
+## PhaseNet
+Doi: https://doi.org/10.48550/arXiv.1803.03211
+Github: https://github.com/AI4EPS/PhaseNet
+
+## GaMMA
+Doi: https://doi.org/10.48550/arXiv.2109.09008
+Github: https://github.com/AI4EPS/GaMMA
+

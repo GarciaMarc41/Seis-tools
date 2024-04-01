@@ -1,6 +1,5 @@
 # Marc Garcia
 # import libraries 
-# 3 days 7.5 mins/ 6 months 7.5 hours 
 import glob
 import numpy as np 
 from obspy import read, UTCDateTime

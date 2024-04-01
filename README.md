@@ -6,3 +6,7 @@
 One Drive Link to Data: https://minersutep-my.sharepoint.com/:f:/g/personal/aavelasco_utep_edu/EicgAIC_dG5LvaWXSzmuCowBaPlFhM9woG7Cjp6qMthy-Q?e=B9IrQ2
 
 
+## Deep Denosier 
+Doi: 
+Github: 
+Seisbench Github: 

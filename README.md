@@ -7,6 +7,6 @@ One Drive Link to Data: https://minersutep-my.sharepoint.com/:f:/g/personal/aave
 
 
 ## Deep Denosier 
-Doi: 
-Github: 
-Seisbench Github: 
+Doi: https://doi.org/10.48550/arXiv.1811.02695
+Github: https://github.com/AI4EPS/DeepDenoiser
+Seisbench Github: https://github.com/seisbench/seisbench

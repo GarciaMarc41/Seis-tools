@@ -1,0 +1,55 @@
+import os
+import obspy
+from obspy import read
+import seisbench.models as sbm
+from multiprocessing import Pool
+
+# Load the model
+model = sbm.DeepDenoiser.from_pretrained("original")
+
+# Define the source and target directories
+source_directory = '/Volumes/Marco/concurrent_denoiser'
+target_directory = '/Volumes/Marco/concurrent_denoiser/denoised'
+
+# Ensure the target directory exists
+os.makedirs(target_directory, exist_ok=True)
+
+# Get all miniseed files
+mseed_files = [f for f in os.listdir(source_directory) if f.endswith('.mseed')]
+print(mseed_files)
+
+# Sort files by their names
+mseed_files.sort()
+
+def process_file(filename):
+    print("Processing", filename)
+    file_path = os.path.join(source_directory, filename)
+    
+    # Read the stream
+    stream = read(file_path)
+
+    # Apply the model to denoise
+    denoised = model.annotate(stream)
+
+    # Edit Traces
+    for trace in denoised:
+        if 'DeepDenoiser_' in trace.stats.channel:
+            trace.stats.channel = trace.stats.channel.replace('DeepDenoiser_', '')
+    
+    target_file_path = os.path.join(target_directory, filename)
+    
+    # Create a new Stream object to contain all denoised traces
+    denoised_stream = obspy.Stream(traces=denoised)
+
+    # Write denoised signals to the target directory
+    denoised_stream.write(target_file_path, format='MSEED')
+
+    print(f'Processed and saved {filename}')
+
+# Define the number of processes to use
+num_processes = os.cpu_count()
+
+# Create a Pool of processes
+with Pool(processes=num_processes) as pool:
+    # Map the process_file function to each file in parallel
+    pool.map(process_file, mseed_files)
